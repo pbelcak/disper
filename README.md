@@ -23,7 +23,8 @@ All important code files are on the root level of the repository.
 
 ### Run Options
 ```
-usage: main.py [-h] [-j JOB_ID] [-o OUTPUT_PATH] [-t TASK] [-d DATAFORM] [-f FOCUS] [-m {single,sweep}] [--sweep-id SWEEP_ID] [--sweep-runs SWEEP_RUNS] [--verbosity VERBOSITY] [--wandbosity WANDBOSITY] [--plotlibsity PLOTLIBSITY]
+usage: main.py [-h] [-j JOB_ID] [-o OUTPUT_PATH] [-t TASK] [-df DATA_FORM] [-ddp DATA_DIRECTORY_PATH] [-da {load,generate,generate_and_save}] [-f FOCUS] [-m {single,sweep}] [--sweep-id SWEEP_ID] [--sweep-runs SWEEP_RUNS] [--verbosity VERBOSITY] [--wandbosity WANDBOSITY]
+               [--plotlibsity PLOTLIBSITY]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -32,21 +33,25 @@ optional arguments:
   -o OUTPUT_PATH, --output-path OUTPUT_PATH
                         The directory which will contain job sub-directories containing the checkpoints of best models
   -t TASK, --task TASK  The task to perform
-  -d DATAFORM, --dataform DATAFORM
-                        The dataform to use when creating the training
+  -df DATA_FORM, --data-form DATA_FORM
+                        The data form to use when creating the training (default: unique_n)
+  -ddp DATA_DIRECTORY_PATH, --data-directory-path DATA_DIRECTORY_PATH
+                        The path to the directory containing the data to use (default: ./data)
+  -da {load,generate,generate_and_save}, --data-action {load,generate,generate_and_save}
+                        The action to perform when preparing the data (choices: load, generate, generate_and_save; default: load)
   -f FOCUS, --focus FOCUS
-                        The rolling ID of the group to focus at
+                        The rolling ID of the group to focus at (default 0, means all groups being loaded)
   -m {single,sweep}, --mode {single,sweep}
-                        Choose whether to do a single evaluation run or whether to start a sweep agent
+                        Choose whether to do a single evaluation run or whether to start a sweep agent (default: single)
   --sweep-id SWEEP_ID   The id of the sweep to connect to (usually a string rather than a number)
   --sweep-runs SWEEP_RUNS
-                        The number of sweep runs to do in this job
+                        The number of sweep runs to do in this job (default: 1)
   --verbosity VERBOSITY
-                        The verbosity level (0 is min, 2 is max)
+                        The terminal output verbosity level (0 is min, 2 is max, default: 2)
   --wandbosity WANDBOSITY
-                        The level of verbosity for wandb (0 is min, 2 is max)
+                        The level of verbosity for wandb (0 is min, 2 is max, default: 2)
   --plotlibsity PLOTLIBSITY
-                        The level of verbosity for matplotlib (0 is min, 1 is max)
+                        The level of verbosity for matplotlib (0 is min, 1 is max, default: 1)
 ```
 
 ### So, how do I run this thing?
