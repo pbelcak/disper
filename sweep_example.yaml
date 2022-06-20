@@ -1,0 +1,40 @@
+program: main.py
+method: random
+metric:
+  name: rolling_average_best_test_loss
+  goal: minimize
+parameters:
+  optimizer:
+    value: "adamw"
+  lr:
+    min: 0.005
+    max: 0.020
+
+  data_exponent:
+    value: 1.0
+  data_multiplier:
+    value: 100
+  
+  batch_size:
+    values: [ 64, 128, 256 ]
+  epochs_multiplier:
+    value: 120
+  patience_fraction:
+    value: 0.25
+  n_primitives:
+    min: 6
+    max: 12
+  
+  beta:
+    min: 0.005
+    max: 0.25
+  gamma:
+    min: 0.005
+    max: 0.050
+  delta:
+    min: 0.000
+    max: 0.005
+
+  attention_dropout:
+    min: 0.00
+    max: 0.30
