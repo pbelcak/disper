@@ -87,7 +87,7 @@ def main():
 		'--verbosity',
 		type=int,
 		default=2,
-		help='The verbosity level (0 is min, 2 is max, default: 2)'
+		help='The terminal output verbosity level (0 is min, 2 is max, default: 2)'
 	)
 	parser.add_argument(
 		'--wandbosity',
